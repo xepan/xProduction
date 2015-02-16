@@ -8,10 +8,4 @@ class Model_Jobcard_Received extends Model_JobCard{
 		parent::init();
 		$this->addCondition('status','received');
 	}
-
-	function assignTo($employee){
-		// create log/communication 
-		throw $this->exception('To Do');
-	}
-
 }	

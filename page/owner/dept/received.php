@@ -26,7 +26,7 @@ class page_xProduction_page_owner_dept_received extends page_xProduction_page_ow
 			$employee_grid->setModel($employee_model);
 
 			$form = $p->add('Form');
-			$employee_field = $form->addField('line','employee_selected');
+			$employee_field = $form->addField('hidden','employee_selected');
 
 			$employee_field->set(json_encode($received_jobcard_model->getAssociatedEmployees()));
 			$employee_grid->addSelectable($employee_field);

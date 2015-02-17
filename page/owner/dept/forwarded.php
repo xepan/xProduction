@@ -9,6 +9,8 @@ class page_xProduction_page_owner_dept_forwarded extends page_xProduction_page_o
 		$forwarded_to_me=$this->add('xShop/Model_OrderItemDepartmentalStatus');
 		$crud=$this->add('CRUD',array('allow_add'=>false,'allow_del'=>false,'allow_edit'=>false));
 		$crud->setModel($forwarded_to_me);
-		$crud->addAction('receive',array('toolbar'=>false));
+				
+		$crud->add('xHR/Controller_Acl');
+
 	}
 }

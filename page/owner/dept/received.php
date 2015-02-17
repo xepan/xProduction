@@ -13,6 +13,8 @@ class page_xProduction_page_owner_dept_received extends page_xProduction_page_ow
 
 		$p=$crud->addFrame('assign',array('label'=>'label','title'=>'title','descr'=>'descr'));
 		
+		$crud->add('xHR/Controller_Acl');
+
 		if($p){
 			// Job Assign Management
 			$received_jobcard_model->load($crud->id);

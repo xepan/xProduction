@@ -10,6 +10,11 @@ class page_xProduction_page_owner_user_processing extends page_xProduction_page_
 		$crud->setModel($this->app->current_employee->processingJobCards());
 
 		$crud->addAction('start_processing',array('toolbar'=>false));
+		if(!$crud->isEditing()){
+			$g=$crud->grid;
+			$g->addPaginator(15);
+			$g->addQuickSearch(array('name'));
+		}
 
 	
 

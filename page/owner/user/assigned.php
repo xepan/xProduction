@@ -9,6 +9,12 @@ class page_xProduction_page_owner_user_assigned extends page_xProduction_page_ow
 		$crud->setModel($this->app->current_employee->assignedJobCards());
 
 		$crud->addAction('start_processing',array('toolbar'=>false));
+		if(!$crud->isEditing()){
+			$g=$crud->grid;
+			$g->addPaginator(15);
+			$g->addQuickSearch(array('name'));
+		}
+
 
 	}
 }

@@ -10,6 +10,11 @@ class page_xProduction_page_owner_dept_received extends page_xProduction_page_ow
 
 		$crud=$this->add('CRUD',array('grid_class'=>'xProduction/Grid_JobCard'));
 		$crud->setModel($received_jobcard_model);
+		if(!$crud->isEditing()){
+			$g=$crud->grid;
+			$g->addPaginator(15);
+			$g->addQuickSearch(array('name'));
+		}
 
 		$p=$crud->addFrame('assign',array('label'=>'label','title'=>'title','descr'=>'descr'));
 		

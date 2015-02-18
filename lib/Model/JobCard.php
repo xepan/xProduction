@@ -13,12 +13,17 @@ class Model_JobCard extends \SQL_Model{
 		$this->hasOne('xShop/OrderItemDepartmentalStatus','orderitem_departmental_status_id');
 
 		$this->hasOne('xHR/Employee','created_by_id')->defaultValue($this->api->current_employee->id)->system(true);
-
+		
 		$this->addField('name')->caption('Job Number');
 		$this->addField('status')->enum(array('-','received','approved','assigned','processing','processed','completed','forwarded'))->defaultValue('-');
 
 		$this->hasMany('xProduction/JobCardEmployeeAssociation','jobcard_id');
 
+		$this->add('Controller_Validator');
+		$this->is(array(
+							'name|to_trim|required',
+							)
+					);
 		$this->add('dynamic_model/Controller_AutoCreator');
 
 	}

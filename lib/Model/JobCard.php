@@ -12,6 +12,8 @@ class Model_JobCard extends \SQL_Model{
 		$this->hasOne('xHR/Department','department_id');
 		$this->hasOne('xShop/OrderItemDepartmentalStatus','orderitem_departmental_status_id');
 
+		$this->hasOne('xHR/Employee','created_by_id')->defaultValue($this->api->current_employee->id)->system(true);
+
 		$this->addField('name')->caption('Job Number');
 		$this->addField('status')->enum(array('-','received','approved','assigned','processing','processed','completed','forwarded'))->defaultValue('-');
 
@@ -45,7 +47,11 @@ class Model_JobCard extends \SQL_Model{
 		$this->save();
 	}
 
-	function start_processing(){
+	function previousDeptJobCard(){
+		
+	}
+
+	function receive(){
 		
 	}
 }	

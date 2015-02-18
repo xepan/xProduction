@@ -52,7 +52,11 @@ class Model_JobCard extends \SQL_Model{
 		$this->save();
 	}
 
-	function start_processing(){
+	function previousDeptJobCard(){
+		
+	}
+
+	function receive(){
 		
 	}
 }	
